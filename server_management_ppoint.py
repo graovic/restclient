@@ -7,7 +7,7 @@
 	Description:
 		
 	program takes parameters from web services and configuring servers based on them.
-	After finish tasks program updete web services about status
+	After finish tasks program update web services about status
 """
 
 
@@ -61,7 +61,7 @@ def create_underconstruction_files(dname):
 	dir_name_content = "/var/www/html/" + dname
 	dir_name_logs = "/var/log/httpd/" + dname
 	if os.path.isdir(dir_name_content):
-		print "Direktorijum " + dir_name_content + " vec postoji"
+		print "Directory " + dir_name_content + " already exists"
 		sys.exit(2)
 	else:
 		os.mkdir(dir_name_content)
@@ -73,7 +73,7 @@ def create_underconstruction_files(dname):
 		sys.exit(2)
 	else:
 		if os.mkdir(dir_name_logs):
-			print "Kreiranje log foldera uspesno zavrseno"
+			print "Directory is succesfuly created"
 	return 1
 
 def create_file_from_template(template_name, dname):
@@ -92,7 +92,7 @@ def create_apache_template(template_content, dname):
 def main():
 	template = 'hosting-template'
 	if len(sys.argv) < 2:
-		print "Usage %s domain_name example ( %s www.uzzpro.gov.rs )" % (sys.argv[0],sys.argv[0])
+		print "Usage %s domain_name example ( %s www.exampe.com )" % (sys.argv[0],sys.argv[0])
 		sys.exit(1)
 	
 	if (sys.argv[1] == "get_data"):
